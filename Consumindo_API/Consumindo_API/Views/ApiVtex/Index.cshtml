@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index API Vtex</h1>
+
+@using (Html.BeginForm("SkuGet", "ApiVtex", FormMethod.Get))
+{
+
+    <p>X-VTEX-API-AppKey: <input type="text" id="key" name="key" /></p>
+    <p>X-VTEX-API-AppToken: <input type="text" id="token" name="token" /></p>
+    <p>
+        <button type="submit" name="Busca Sku" id="BuscaSku" class="btn btn-info">Busca Sku</button>
+    </p>
+}

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ABEC.SIGA.WEBSERVICE" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s2="Message.SisPag.Braspag" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="ABEC.SIGA.WEBSERVICE" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="ABEC.SIGA.WEBSERVICE">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:import namespace="Message.SisPag.Braspag" />
+      <s:element name="ManterAluno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aluno" type="tns:AlunoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AlunoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdAluno" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cpf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneResidencial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneCelular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneComercial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomePai" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeMae" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Escolaridade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Logradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bairro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cep" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdProcedencia" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataNascimento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CidadeNaturalidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DddTelefoneResidencial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DddTelefoneCelular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DddTelefoneComercial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sexo" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoAluno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdFormacao" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCidade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdUF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Responsavel" type="tns:ResponsavelDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEmpresaOrigem" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FlgNaoReceberEmails" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponsavelDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdResponsavel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nascimento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sexo" nillable="true" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Endereco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bairro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cep" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cpf" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCidade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdUF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDDTelefoneCelular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneCelular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDDTelefoneResidencial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneResidencial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDDTelefoneComercial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefoneComercial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FlgInterfaceSAP" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroResidencial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ManterAlunoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ManterAlunoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterAlunoSiga">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cpf" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterAlunoSigaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterAlunoSigaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterSituacaoFinanceira">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idContrato" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterSituacaoFinanceiraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterSituacaoFinanceiraResult" type="tns:ArrayOfSituacaoFinanceiraAlunoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSituacaoFinanceiraAlunoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SituacaoFinanceiraAlunoDTO" nillable="true" type="tns:SituacaoFinanceiraAlunoDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SituacaoFinanceiraAlunoDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroParcela" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorContaReceber" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataVencimento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdFormaPagamento" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeFormaPagamento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pago" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UrlBoleto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumCpf" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BoletoAcordoVCOM" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObterLinkContratoAluno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idAluno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTurma" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterLinkContratoAlunoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterLinkContratoAlunoResult" type="tns:LinkContratoDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LinkContratoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensagemErro" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PagarLinkPagamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idAluno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTurma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cartao" type="s2:Cartao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagarLinkPagamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PagarLinkPagamentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrocarCartaoLinkPagamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idAluno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTurma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cartao" type="s2:Cartao" />
+            <s:element minOccurs="1" maxOccurs="1" name="numParcela" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrocarCartaoLinkPagamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrocarCartaoLinkPagamentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagarParcelaEspecificaLinkPagamento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idAluno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTurma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cartao" type="s2:Cartao" />
+            <s:element minOccurs="1" maxOccurs="1" name="numParcela" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idContaReceber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagarParcelaEspecificaLinkPagamentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PagarParcelaEspecificaLinkPagamentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagarBoletoVencidoCartao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idAluno" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idTurma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cartao" type="s2:Cartao" />
+            <s:element minOccurs="1" maxOccurs="1" name="numParcela" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idContaReceber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagarBoletoVencidoCartaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PagarBoletoVencidoCartaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="Message.SisPag.Braspag">
+      <s:complexType name="Cartao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdCartao" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCartaoOrigem" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoBandeiraBraspag" type="s2:TipoBandeiraBraspag" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeBandeira" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeComprador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCartao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCodigoSeguranca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataValidadeCartao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeImpressoCartao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ativo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataRegistro" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextoGenerico1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextoGenerico2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoBandeiraBraspag">
+        <s:restriction base="s:string">
+          <s:enumeration value="Visa" />
+          <s:enumeration value="MasterCard" />
+          <s:enumeration value="AmericanExpress" />
+          <s:enumeration value="Dinners" />
+          <s:enumeration value="EloCredito" />
+          <s:enumeration value="HiperCard" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ManterAlunoSoapIn">
+    <wsdl:part name="parameters" element="tns:ManterAluno" />
+  </wsdl:message>
+  <wsdl:message name="ManterAlunoSoapOut">
+    <wsdl:part name="parameters" element="tns:ManterAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterAlunoSigaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterAlunoSiga" />
+  </wsdl:message>
+  <wsdl:message name="ObterAlunoSigaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterAlunoSigaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterSituacaoFinanceiraSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterSituacaoFinanceira" />
+  </wsdl:message>
+  <wsdl:message name="ObterSituacaoFinanceiraSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterSituacaoFinanceiraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterLinkContratoAlunoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterLinkContratoAluno" />
+  </wsdl:message>
+  <wsdl:message name="ObterLinkContratoAlunoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterLinkContratoAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PagarLinkPagamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:PagarLinkPagamento" />
+  </wsdl:message>
+  <wsdl:message name="PagarLinkPagamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:PagarLinkPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrocarCartaoLinkPagamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:TrocarCartaoLinkPagamento" />
+  </wsdl:message>
+  <wsdl:message name="TrocarCartaoLinkPagamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:TrocarCartaoLinkPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PagarParcelaEspecificaLinkPagamentoSoapIn">
+    <wsdl:part name="parameters" element="tns:PagarParcelaEspecificaLinkPagamento" />
+  </wsdl:message>
+  <wsdl:message name="PagarParcelaEspecificaLinkPagamentoSoapOut">
+    <wsdl:part name="parameters" element="tns:PagarParcelaEspecificaLinkPagamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PagarBoletoVencidoCartaoSoapIn">
+    <wsdl:part name="parameters" element="tns:PagarBoletoVencidoCartao" />
+  </wsdl:message>
+  <wsdl:message name="PagarBoletoVencidoCartaoSoapOut">
+    <wsdl:part name="parameters" element="tns:PagarBoletoVencidoCartaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsAlunoSoap">
+    <wsdl:operation name="ManterAluno">
+      <wsdl:input message="tns:ManterAlunoSoapIn" />
+      <wsdl:output message="tns:ManterAlunoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterAlunoSiga">
+      <wsdl:input message="tns:ObterAlunoSigaSoapIn" />
+      <wsdl:output message="tns:ObterAlunoSigaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterSituacaoFinanceira">
+      <wsdl:input message="tns:ObterSituacaoFinanceiraSoapIn" />
+      <wsdl:output message="tns:ObterSituacaoFinanceiraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterLinkContratoAluno">
+      <wsdl:input message="tns:ObterLinkContratoAlunoSoapIn" />
+      <wsdl:output message="tns:ObterLinkContratoAlunoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PagarLinkPagamento">
+      <wsdl:input message="tns:PagarLinkPagamentoSoapIn" />
+      <wsdl:output message="tns:PagarLinkPagamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrocarCartaoLinkPagamento">
+      <wsdl:input message="tns:TrocarCartaoLinkPagamentoSoapIn" />
+      <wsdl:output message="tns:TrocarCartaoLinkPagamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PagarParcelaEspecificaLinkPagamento">
+      <wsdl:input message="tns:PagarParcelaEspecificaLinkPagamentoSoapIn" />
+      <wsdl:output message="tns:PagarParcelaEspecificaLinkPagamentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PagarBoletoVencidoCartao">
+      <wsdl:input message="tns:PagarBoletoVencidoCartaoSoapIn" />
+      <wsdl:output message="tns:PagarBoletoVencidoCartaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsAlunoSoap" type="tns:WsAlunoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ManterAluno">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/ManterAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterAlunoSiga">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/ObterAlunoSiga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterSituacaoFinanceira">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/ObterSituacaoFinanceira" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterLinkContratoAluno">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/ObterLinkContratoAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagarLinkPagamento">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/PagarLinkPagamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrocarCartaoLinkPagamento">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/TrocarCartaoLinkPagamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagarParcelaEspecificaLinkPagamento">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/PagarParcelaEspecificaLinkPagamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagarBoletoVencidoCartao">
+      <soap:operation soapAction="ABEC.SIGA.WEBSERVICE/PagarBoletoVencidoCartao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsAlunoSoap12" type="tns:WsAlunoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ManterAluno">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/ManterAluno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterAlunoSiga">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/ObterAlunoSiga" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterSituacaoFinanceira">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/ObterSituacaoFinanceira" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterLinkContratoAluno">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/ObterLinkContratoAluno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagarLinkPagamento">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/PagarLinkPagamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrocarCartaoLinkPagamento">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/TrocarCartaoLinkPagamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagarParcelaEspecificaLinkPagamento">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/PagarParcelaEspecificaLinkPagamento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagarBoletoVencidoCartao">
+      <soap12:operation soapAction="ABEC.SIGA.WEBSERVICE/PagarBoletoVencidoCartao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsAluno">
+    <wsdl:port name="WsAlunoSoap" binding="tns:WsAlunoSoap">
+      <soap:address location="http://localhost:3000/WebService/WsAluno.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsAlunoSoap12" binding="tns:WsAlunoSoap12">
+      <soap12:address location="http://localhost:3000/WebService/WsAluno.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
